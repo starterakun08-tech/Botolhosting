@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Tempat - LocalVibe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="lv-header">
+  <div class="header-inner">
+    <h1 class="brand" id="placeName">Loading...</h1>
+  </div>
+</header>
+
+<main class="container">
+  <div class="detail-container">
+    <button class="back-btn" onclick="window.history.back()">← Kembali</button>
+
+    <img id="placeImage" class="detail-img" src="img/bggunung.jpg" alt="Foto tempat" />
+
+    <p style="margin: 12px 0 4px">
+      <span id="placeCategory" class="cat-pill"></span>
+      <span id="placeDistrict" class="district-pill"></span>
+    </p>
+
+    <p id="placeDesc"></p>
+
+    <p style="margin-top: 18px">
+      <a id="mapsLink" class="btn btn-outline" href="#" target="_blank" rel="noopener">
+        Buka di Google Maps
+      </a>
+    </p>
+  </div>
+</main>
+
+<script src="script.js"></script>
+<script>
+  console.log("[Detail] detail.html script dimuat");
+
+  // === Ambil ID dari URL ===
+  const params = new URLSearchParams(window.location.search);
+  const rawId = params.get("id");
+  const placeId = parseInt(rawId, 10);
+
+  console.log("[Detail] Query param id =", rawId, " | parsed =", placeId);
+
+  if (!Array.isArray(window.places) && typeof places === "undefined") {
+    console.error("[Detail] Data places tidak tersedia di window. Pastikan script.js / data dimuat dengan benar.");
+  }
+
+  // Gunakan window.places atau global places
+  const dataList = Array.isArray(window.places) ? window.places : (typeof places !== "undefined" ? places : []);
+
+  console.log("[Detail] Jumlah data places yang tersedia:", dataList.length);
+
+  // === Cari data berdasarkan ID ===
+  const place = dataList.find(p => Number(p.id) === placeId);
+
+  if (!place) {
+    console.warn("[Detail] Data tempat tidak ditemukan untuk id:", placeId);
+
+    const fallbackName = "Tempat tidak ditemukan";
+    document.getElementById("placeName").textContent = fallbackName;
+    document.getElementById("placeImage").src = "img/bggunung.jpg";
+    document.getElementById("placeCategory").textContent = "";
+    document.getElementById("placeDistrict").textContent = "";
+    document.getElementById("placeDesc").textContent = "Maaf, data detail tempat ini belum tersedia.";
+    document.getElementById("mapsLink").href =
+      "https://www.google.com/maps/search/" + encodeURIComponent(fallbackName);
+
+  } else {
+    console.log("[Detail] Data tempat ditemukan:", place);
+
+    const safeName = place.name || "Tanpa Nama";
+    const safeImg = place.img || "img/bggunung.jpg";
+    const safeCategory = place.category || "Tanpa kategori";
+    const safeDistrict = place.district || "";
+
+    document.getElementById("placeName").textContent = safeName;
+    document.getElementById("placeImage").src = safeImg;
+    document.getElementById("placeCategory").textContent = safeCategory;
+    document.getElementById("placeDistrict").textContent = safeDistrict;
+    document.getElementById("placeDesc").textContent = place.desc || "";
+
+    const mapsQuery = safeDistrict
+      ? safeName + " " + safeDistrict
+      : safeName;
+
+    document.getElementById("mapsLink").href =
+      "https://www.google.com/maps/search/" + encodeURIComponent(mapsQuery);
+  }
+</script>
+
+</body>
+</html>
