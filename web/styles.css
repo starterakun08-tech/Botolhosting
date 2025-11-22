@@ -1,0 +1,234 @@
+/* ======================
+ GLOBAL
+====================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #0e1626;
+  color: white;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+
+
+/* ======================
+ HEADER
+====================== */
+.lv-header {
+  text-align: center;
+  padding: 40px 20px;
+  background: #101a2f;
+}
+
+.brand {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.tag {
+  opacity: 0.8;
+}
+
+
+
+/* ======================
+ FILTER & SEARCH
+====================== */
+.controls {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-wrap input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+}
+
+.filters select {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+
+
+/* ======================
+ GRID
+====================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-bottom: 50px;
+}
+
+
+
+/* ======================
+ CARD TEMPAT
+====================== */
+.place-card {
+  background: #111927;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+  padding-bottom: 10px;
+  z-index: 1;
+}
+
+/* MEDIA (GAMBAR) */
+.place-media img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+}
+
+/* BODY */
+.place-body {
+  padding: 15px;
+}
+
+.place-title {
+  margin: 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.place-desc {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+
+
+/* ======================
+ TAG / PILLS
+====================== */
+.cat-pill, .district-pill {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-right: 5px;
+  opacity: 0.85;
+  background: #1d2b45;
+}
+
+.cat-pill { background: #293b5f; }
+.district-pill { background: #1b3b24; }
+
+
+
+/* ======================
+ BUTTONS
+====================== */
+.btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn-secondary {
+  background: #333;
+  color: white;
+}
+
+.place-media {
+  cursor: pointer;
+}
+.place-media img {
+  pointer-events: none;
+}
+
+
+/* ======================
+ SHINE OVERLAY (PERBAIKAN)
+====================== */
+.shine {
+  pointer-events: none;
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* EFEK TETAP ADA */
+  background: linear-gradient(120deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+
+  /* FIX UTAMA */
+  pointer-events: none;   /* ⬅ tidak blok klik */
+  z-index: 0;             /* ⬅ pastikan di bawah tombol */
+}
+
+
+
+/* ======================
+ FOOTER
+====================== */
+.lv-footer {
+  padding: 30px;
+  text-align: center;
+  background: #0d1423;
+  opacity: 0.7;
+}
+
+
+
+/* ======================
+ DETAIL PAGE
+====================== */
+.detail-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.detail-card {
+  background: #111927;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.detail-img img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 15px;
+}
+
+.detail-title {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.detail-tags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.detail-desc {
+  opacity: 0.85;
+  line-height: 1.5;
+}
