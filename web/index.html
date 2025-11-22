@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LocalVibe — Tempat Nongkrong Mojokerto</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="lv-header">
+    <div class="header-inner">
+      <h1 class="brand">LocalVibe</h1>
+      <p class="tag">Temukan tempat nongkrong seru di Trawas-Pacet, Mojokerto</p>
+    </div>
+  </header>
+  
+  <main class="container">
+
+    <div class="controls">
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Cari nama, kategori, atau menu..." />
+      </div>
+
+      <div class="filters">
+        <select id="categoryFilter">
+          <option value="all">Semua Kategori</option>
+          <option value="cafe">Cafe</option>
+          <option value="tempat wisata">Tempat Wisata</option>
+          <option value="warkop & warung">Warkop & Warung</option>
+        </select>
+
+        <select id="areaFilter">
+          <option value="all">Area</option>
+          <option value="Trawas">Trawas</option>
+          <option value="Pacet">Pacet</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- FIXED: ID HARUS placeGrid -->
+    <section id="placeGrid" class="grid"></section>
+
+
+  </main>
+
+  <footer class="lv-footer">
+    &copy; <span id="year">2025</span> LocalVibe — Mojokerto · by 
+    <a href="https://www.instagram.com/aaaa.vila_?igsh=MWR3YjExZXk4emk3dg==">@aaaa.vila</a> &
+    <a href="https://www.instagram.com/olvyvrnw_?igsh=azMxY2V5bXRnbjh2">@olvyvrnw</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
