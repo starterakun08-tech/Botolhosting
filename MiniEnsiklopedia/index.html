@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexapedia - Ensiklopedia Mini</title>
+  <link rel="icon" href="img/AZqeyPWhF_7n2uswy0hjWA-AZqeyPWh3GF_hMWlMPdDeA.jpg">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="theme-dark">
+<div class="bubble-bg">
+  <div class="bubble bubble-sm"></div>
+  <div class="bubble bubble-md"></div>
+  <div class="bubble bubble-lg"></div>
+  <div class="bubble bubble-xl"></div>
+  <div class="bubble bubble-sm delay-1"></div>
+  <div class="bubble bubble-md delay-2"></div>
+  <div class="bubble bubble-lg delay-3"></div>
+</div>
+
+<div class="app-shell">
+  <!-- HEADER (full width feel) -->
+  <header>
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="logo-badge">
+          <img src="img/AZqeyPWhF_7n2uswy0hjWA-AZqeyPWh3GF_hMWlMPdDeA.jpg" alt="logo" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">
+        </div>
+        <div class="header-text">
+          <h1>
+            <span id="appTitle">Nexapedia</span>
+            <span class="header-pill" id="headerPill">Ensiklopedia Mini</span>
+          </h1>
+          <p id="headerSubtitle">
+            Pengetahuan singkat, padat, dan mudah dipahami — diambil dari Wikipedia dan sumber terbuka lain.
+          </p>
+        </div>
+
+        <div class="header-actions">
+          <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="id">ID</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+
+          <button class="icon-btn" id="themeToggle">🌙</button>
+          <button class="icon-btn" id="soundToggle">🔈</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="header-bottom-area">
+
+    <div class="header-bottom-inner">
+
+      <!-- MODE SELECTOR -->
+      <div class="mode-row">
+        <span class="mode-label" id="modeLabel">Mode:</span>
+        <div class="mode-buttons">
+          <button class="mode-btn active" data-mode="wiki" id="modeWikiLabelBtn">
+            <span id="modeWikiLabel">Ensiklopedia</span>
+          </button>
+
+          <button class="mode-btn" data-mode="dict" id="modeDictLabelBtn">
+            <span id="modeDictLabel">Kamus</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SEARCH BAR -->
+      <div class="search-row">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M9.5 3a6.5 6.5 0 014.993 10.743l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387A6.5 6.5 0 119.5 3zm0 2a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/>
+          </svg>
+          <input id="searchInput" type="text" placeholder="Cari topik apa saja…">
+        </div>
+
+        <button class="btn-ghost" id="searchBtn">🔍 <span id="searchBtnLabel">Cari</span></button>
+        <button class="btn-ghost" id="randomBtn">🎲 <span id="randomBtnLabel">Artikel acak</span></button>
+      </div>
+
+      <!-- KATEGORI -->
+      <div class="kategori-row" id="kategoriRow">
+        <button class="chip" data-title-id="Sains" data-title-en="Science" data-label-id="Sains" data-label-en="Science">Sains</button>
+        <button class="chip" data-title-id="Sejarah" data-title-en="History" data-label-id="Sejarah" data-label-en="History">Sejarah</button>
+        <button class="chip" data-title-id="Geografi" data-title-en="Geography" data-label-id="Geografi" data-label-en="Geography">Geografi</button>
+        <button class="chip" data-title-id="Teknologi" data-title-en="Technology" data-label-id="Teknologi" data-label-en="Technology">Teknologi</button>
+        <button class="chip" data-title-id="Astronomi" data-title-en="Astronomy" data-label-id="Astronomi" data-label-en="Astronomy">Astronomi</button>
+        <button class="chip" data-title-id="Biologi" data-title-en="Biology" data-label-id="Biologi" data-label-en="Biology">Biologi</button>
+        <button class="chip" data-title-id="Fisika" data-title-en="Physics" data-label-id="Fisika" data-label-en="Physics">Fisika</button>
+        <button class="chip" data-title-id="Kimia" data-title-en="Chemistry" data-label-id="Kimia" data-label-en="Chemistry">Kimia</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN GRID -->
+  <main class="main-grid">
+    <!-- LEFT PANEL -->
+    <section class="left-panel">
+      <!-- Rekomendasi -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title" id="recTitle">Topik rekomendasi hari ini</div>
+            <div class="card-subtitle" id="recSubtitle">Klik salah satu untuk memuat ringkasan dari Wikipedia.</div>
+          </div>
+          <span class="badge-soft" id="recBadge">Auto dari wiki</span>
+        </div>
+
+        <div class="rec-list" id="recList">
+          <div class="rec-item"
+               data-title-id="Gravitasi" data-title-en="Gravity"
+               data-meta-id="Mengapa benda jatuh ke bawah?" data-meta-en="Why do things fall down?">
+            <div class="rec-main">
+              <div class="rec-title">Gravitasi</div>
+              <div class="rec-meta">Mengapa benda jatuh ke bawah?</div>
+            </div>
+            <div class="rec-icon">↗</div>
+          </div>
+          <div class="rec-item"
+               data-title-id="Bintang" data-title-en="Star"
+               data-meta-id="Benda langit yang memancarkan cahaya." data-meta-en="Luminous object in space.">
+            <div class="rec-main">
+              <div class="rec-title">Bintang</div>
+              <div class="rec-meta">Benda langit yang memancarkan cahaya.</div>
+            </div>
+            <div class="rec-icon">↗</div>
+          </div>
+          <div class="rec-item"
+               data-title-id="Internet" data-title-en="Internet"
+               data-meta-id="Jaringan global yang menghubungkan dunia." data-meta-en="The global network that connects the world.">
+            <div class="rec-main">
+              <div class="rec-title">Internet</div>
+              <div class="rec-meta">Jaringan global yang menghubungkan dunia.</div>
+            </div>
+            <div class="rec-icon">↗</div>
+          </div>
+          <div class="rec-item"
+               data-title-id="Gunung berapi" data-title-en="Volcano"
+               data-meta-id="Bagaimana terbentuk dan mengapa bisa meletus." data-meta-en="How they form and why they erupt.">
+            <div class="rec-main">
+              <div class="rec-title">Gunung berapi</div>
+              <div class="rec-meta">Bagaimana terbentuk dan mengapa bisa meletus.</div>
+            </div>
+            <div class="rec-icon">↗</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Library -->
+      <div class="card library-card">
+        <div class="card-header">
+          <div>
+            <div class="card-title" id="libTitle">Library offline</div>
+            <div class="card-subtitle" id="libSubtitle">Item yang kamu simpan bisa dibuka ulang tanpa internet.</div>
+          </div>
+          <button class="btn-mini" id="clearLibraryBtn">
+            🧹 <span id="clearLibraryLabel">Bersihkan</span>
+          </button>
+        </div>
+        <div class="library-list" id="libraryList">
+          <div class="lib-empty" id="libEmptyText">Belum ada item tersimpan.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT PANEL: Artikel / Dictionary -->
+    <section class="article-panel">
+      <div id="articleContent" class="article-content">
+        <div class="article-header-row">
+          <div class="article-heading">
+            <div class="article-label" id="articleLabel">Ringkasan artikel</div>
+            <h2 class="article-title" id="articleTitle">Mulai dengan mencari topik di atas</h2>
+            <div class="article-meta" id="articleMeta">
+              <span>💡 Tips: coba cari <b>"Air"</b>, <b>"Energi Surya"</b>, atau <b>"Fotosintesis"</b>.</span>
+            </div>
+          </div>
+          <div class="article-controls">
+            <button class="btn-mini" id="saveBtn">
+              💾 <span id="saveBtnLabel">Simpan ke Library</span>
+            </button>
+            <button class="btn-mini" id="openLibraryBtn">
+              📚 <span id="openLibraryBtnLabel">Lihat Library</span>
+            </button>
+            <button class="btn-mini" id="downloadPdfBtn">
+              📄 Unduh PDF
+            </button>
+          </div>
+        </div>
+
+        <div class="article-body" id="articleExtract">
+          Nexapedia akan menampilkan ringkasan singkat dari Wikipedia atau makna kata dari API kamus
+          tentang topik yang kamu cari. Cocok untuk belajar cepat dan menambah wawasan.
+        </div>
+
+        <div class="article-footer">
+          <div class="status-pill" id="onlineStatusPill">
+            <span class="status-dot" id="onlineStatusDot"></span>
+            <span id="apiStatusText">API Wikipedia siap digunakan</span>
+          </div>
+          <div>
+            <span style="opacity:.7;" id="sourceLabel">Sumber:</span>
+            <b id="sourceValue">Wikipedia (id)</b>
+          </div>
+        </div>
+      </div>
+
+      <div id="statusArea" class="status-msg" style="display:none;">
+        <div class="spinner"></div>
+        <span id="statusText">Memuat…</span>
+      </div>
+    </section>
+
+    <section id="researchContainer" class="related-research-card" style="display:none;">
+      <div class="rr-header">
+        <h3 class="rr-title">Riset terkait</h3>
+        <p class="rr-subtitle">Artikel akademik terkait topik ini (Semantic Scholar)</p>
+      </div>
+      <div id="researchList" class="rr-list"></div>
+    </section>  
+  </main>
+
+  <!-- INFO FOOTER -->
+  <footer class="info-footer">
+    <div class="info-card">
+      <div class="info-emoji">ℹ️</div>
+      <div id="infoText">
+        Nexapedia mengambil ringkasan langsung dari <b>Wikipedia Indonesia &amp; Inggris</b>,
+        serta makna kata dari <b>Free Dictionary API (Inggris)</b> dan <b>KBBI API (Bahasa Indonesia)</b>.
+        Gunakan mode <b>Ensiklopedia</b> untuk konsep umum dan <b>Kamus</b> untuk arti kata.
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- Background music (isi sendiri file mp3-nya) -->
+<audio id="bgMusic" src="music/Experience - Ludovico Einaudi - violin cover by Daniel Jang.mp3" preload="auto" loop></audio>
+</body>
+</html>
